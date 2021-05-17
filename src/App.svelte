@@ -7,7 +7,7 @@
 	export let title;
 </script>
 
-<main>
+<main class="app">
 	<div class="header">
 		<div class="cartographer-infos">
 			<p class="label">Cartographer :</p>
@@ -25,8 +25,9 @@
 </main>
 
 <style>
-	main {
+	.app {
 		margin: 0 auto;
+        max-width: 800px;
 	}
 
 	.header {
