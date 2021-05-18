@@ -50,7 +50,7 @@
 	}
 
 	.compass {
-        background-image: url("/assets/img/compass.svg");
+        background-image: url("../assets/img/compass.svg");
 		background-position: center;
 		background-size: contain;
 		background-repeat: no-repeat;

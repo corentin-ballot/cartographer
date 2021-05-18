@@ -25,7 +25,7 @@
         display: block;
         width: 100%;
         height: 32px;
-        background-image: url("/assets/img/coin.svg");
+        background-image: url("../assets/img/coin.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
