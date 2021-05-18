@@ -1,12 +1,11 @@
 <script>
     import Cell from './cell.svelte';
-    import {cells, cellsPerLine} from '../stores/board';
+    import {cells, cellsPerLine, CELL_TYPES} from '../stores/board';
     import { isOpen, selectedCell } from '../stores/modal';
-    import { isEditable } from '../utils/cells';
 
     const selectCellType = (c) => {
-        if(isEditable(c.type))
-        $isOpen = true;
+        if(Object.values(CELL_TYPES).filter(t => t.id == c.type && t.isEditable).length > 0) 
+            $isOpen = true;
         $selectedCell = c.id;
     };
 </script>

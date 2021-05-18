@@ -1,6 +1,5 @@
 <script>
-    import { cellsPerLine as cpl} from "../stores/board";
-    import { CELL_TYPES } from "../utils/cells";
+    import { cellsPerLine as cpl, CELL_TYPES} from "../stores/board";
 
     export let data = {};
 

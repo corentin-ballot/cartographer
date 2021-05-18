@@ -1,11 +1,10 @@
 <script>
     import { DialogOverlay, DialogContent } from 'svelte-accessible-dialog';
     import { isOpen, selectedCell } from '../stores/modal';
-    import { cells } from '../stores/board';
-    import { initCell, selectableTypes } from "../utils/cells";
+    import { cells, CELL_TYPES, Cell as CellClass } from '../stores/board';
     import Cell from './cell.svelte';
 
-    let types = selectableTypes();
+    let types = Object.values(CELL_TYPES).filter(t => t.isEditable);
   
     const open = () => {
       $isOpen = true;
@@ -26,8 +25,8 @@
             <h1>Select type</h1>
             <p>Select the type the cell should be applied : </p>
             <div class="cells">
-                {#each selectableTypes() as type}
-                    <Cell data={initCell(0, type.id)} cellsPerLine={types.length / 2} click={() => selectType(type.id)} />
+                {#each types as type}
+                    <Cell data={new CellClass(0, type.id)} cellsPerLine={types.length / 2} click={() => selectType(type.id)} />
                 {/each}
             </div>
     </DialogContent>
