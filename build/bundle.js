@@ -816,7 +816,7 @@ var app = (function () {
     		c: function create() {
     			button = element("button");
     			div = element("div");
-    			attr_dev(div, "class", "cell svelte-vxix3d");
+    			attr_dev(div, "class", "cell svelte-22lbpl");
     			toggle_class(div, "cell-mountain", /*data*/ ctx[0].type == CELL_TYPES.MOUNTAIN.id);
     			toggle_class(div, "cell-forest", /*data*/ ctx[0].type == CELL_TYPES.FOREST.id);
     			toggle_class(div, "cell-field", /*data*/ ctx[0].type == CELL_TYPES.FIELD.id);
@@ -830,7 +830,7 @@ var app = (function () {
     			toggle_class(div, "cell-left", /*isFisrtCol*/ ctx[3]);
     			toggle_class(div, "cell-right", /*isLastCol*/ ctx[5]);
     			add_location(div, file$8, 17, 4, 451);
-    			attr_dev(button, "class", "cell-container svelte-vxix3d");
+    			attr_dev(button, "class", "cell-container svelte-22lbpl");
     			set_style(button, "flex-basis", 100 / /*cellsPerLine*/ ctx[1] + "%");
     			add_location(button, file$8, 16, 0, 355);
     		},
@@ -3323,7 +3323,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			button = element("button");
-    			attr_dev(button, "class", "coin svelte-19gorf4");
+    			attr_dev(button, "class", "coin svelte-1exxeds");
     			toggle_class(button, "coin-earn", /*index*/ ctx[4] < /*$coins*/ ctx[0]);
     			add_location(button, file$1, 14, 8, 290);
     		},
@@ -3378,7 +3378,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div, "class", "coins svelte-19gorf4");
+    			attr_dev(div, "class", "coins svelte-1exxeds");
     			add_location(div, file$1, 12, 0, 203);
     		},
     		l: function claim(nodes) {
@@ -3533,21 +3533,21 @@ var app = (function () {
     			create_component(coins.$$.fragment);
     			t10 = space();
     			create_component(modal.$$.fragment);
-    			attr_dev(p0, "class", "label svelte-1wyrfug");
+    			attr_dev(p0, "class", "label svelte-orclko");
     			add_location(p0, file, 12, 3, 281);
-    			attr_dev(h10, "class", "name svelte-1wyrfug");
+    			attr_dev(h10, "class", "name svelte-orclko");
     			add_location(h10, file, 13, 3, 320);
-    			attr_dev(p1, "class", "label svelte-1wyrfug");
+    			attr_dev(p1, "class", "label svelte-orclko");
     			add_location(p1, file, 14, 3, 352);
-    			attr_dev(h11, "class", "title svelte-1wyrfug");
+    			attr_dev(h11, "class", "title svelte-orclko");
     			add_location(h11, file, 15, 3, 384);
     			attr_dev(div0, "class", "cartographer-infos");
     			add_location(div0, file, 11, 2, 245);
-    			attr_dev(div1, "class", "compass svelte-1wyrfug");
+    			attr_dev(div1, "class", "compass svelte-orclko");
     			add_location(div1, file, 17, 2, 426);
-    			attr_dev(div2, "class", "header svelte-1wyrfug");
+    			attr_dev(div2, "class", "header svelte-orclko");
     			add_location(div2, file, 10, 1, 222);
-    			attr_dev(main, "class", "app svelte-1wyrfug");
+    			attr_dev(main, "class", "app svelte-orclko");
     			add_location(main, file, 9, 0, 202);
     		},
     		l: function claim(nodes) {
