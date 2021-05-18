@@ -64,13 +64,13 @@
     }
     .cell-mountain {
         background-color: brown;
-        background-image: url("assets/img/mountain.svg");
+        background-image: url("/assets/img/mountain.svg");
     }
     .cell-mountain::after {
         content: "";
         position: absolute;
         display: block;
-        background-image: url("assets/img/coin.svg");
+        background-image: url("/assets/img/coin.svg");
         width: 40%;
         height: 40%;
         bottom: 5%;
@@ -78,29 +78,29 @@
     }
     .cell-forest {
         background-color: forestgreen;
-        background-image: url("assets/img/forest.svg");
+        background-image: url("/assets/img/forest.svg");
     }
     .cell-field {
         background-color: sandybrown;
-        background-image: url("assets/img/field.svg");
+        background-image: url("/assets/img/field.svg");
     }
     .cell-sea {
         background-color: slateblue;
-        background-image: url("assets/img/sea.svg");
+        background-image: url("/assets/img/sea.svg");
     }
     .cell-village {
         background-color: darkred;
-        background-image: url("assets/img/village.svg");
+        background-image: url("/assets/img/village.svg");
     }
     .cell-monster {
         background-color: darkorchid;
-        background-image: url("assets/img/monster.svg");
+        background-image: url("/assets/img/monster.svg");
     }
     .cell-crevasse {
         background-color: grey;
-        background-image: url("assets/img/crevasse.svg");
+        background-image: url("/assets/img/crevasse.svg");
     }
     .cell-ruins {
-        background-image: url("assets/img/ruins.svg");
+        background-image: url("/assets/img/ruins.svg");
     }
 </style>
