@@ -109,3 +109,5 @@ const initBoard = (length = 121) => {
 export const cells = writable(initBoardA());
 export const coins = writable(0);
 export const cellsPerLine = writable(11);
+export const title = writable("");
+export const scoring = writable([{},{},{},{}])
