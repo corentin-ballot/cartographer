@@ -1,10 +1,10 @@
 <script>
-    import { title, scoring } from "../stores/board";
+    import { title, scoring, boards, board } from "../stores/board";
     import { rules } from "../utils/rules"
     import Board from "./board.svelte";
 
     let step = 0;
-    let steps = 5;
+    let steps = 6;
 
     const handleConfirm = (e) => {
         e.preventDefault();
@@ -98,6 +98,22 @@
                     <option value={rule}>{rule.name}</option>
                     {/each}
                 </optgroup> 
+                {/each}
+            </select>
+
+            <button class="confirm">Confirm</button>
+        </form>
+
+        <form class="step" class:current={step==5} class:passed={step>5} on:submit={handleConfirm}>
+            <div class="logo score">
+                <span class="letter">D</span>
+            </div>
+
+            <label for="title" class="label">Map</label>
+            <select bind:value={$board} required>
+                <option selected disabled>Select map template</option>
+                {#each boards as board}
+                    <option value={board}>{board.name}</option>
                 {/each}
             </select>
 

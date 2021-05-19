@@ -3,7 +3,8 @@
     import {cells, cellsPerLine, CELL_TYPES, title} from '../stores/board';
     import { isOpen, selectedCell } from '../stores/modal';
 	import Coins from "./coins.svelte";
-import { username } from '../stores/user';
+    import { username } from '../stores/user';
+    import Scores from './scores.svelte';
 
     const selectCellType = (c) => {
         if(Object.values(CELL_TYPES).filter(t => t.id == c.type && t.isEditable).length > 0) 
@@ -33,6 +34,7 @@ import { username } from '../stores/user';
     {/each}
     </div>
 	<Coins />
+    <Scores />
 </div>
 
 <style>

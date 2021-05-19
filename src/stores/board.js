@@ -1,4 +1,4 @@
-import { writable, get } from 'svelte/store'
+import { writable, get, set } from 'svelte/store'
 
 export const getRegions = () => {
     return get(cells).filter(cell => cell.type != CELL_TYPES.EMPTY.id).map(cell => {
@@ -80,34 +80,60 @@ export function Cell(id, type = CELL_TYPES.EMPTY.id, isRuins = false) {
     }
 }
 
-export const initBoardA = () => {
-    let array = initBoard(121);
+export const boards = [
+    {
+        name: "Face A", 
+        init: () => {
+            let array = initBoard(121);
+            // Add mountains
+            array[14].type = CELL_TYPES.MOUNTAIN.id;array[30].type = CELL_TYPES.MOUNTAIN.id;array[60].type = CELL_TYPES.MOUNTAIN.id;array[90].type = CELL_TYPES.MOUNTAIN.id;array[106].type = CELL_TYPES.MOUNTAIN.id;
+            // Add ruins
+            array[16].isRuins = true;array[23].isRuins = true;array[23].isRuins = true;array[31].isRuins = true;array[89].isRuins = true;array[97].isRuins = true;array[104].isRuins = true;
+            return array;
+        }
+    },
+    {
+        name: "Face B",
+        init: () => {
+            let array = initBoard(121);
+            // Add mountains
+            array[19].type = CELL_TYPES.MOUNTAIN.id;
+            array[25].type = CELL_TYPES.MOUNTAIN.id;
+            array[82].type = CELL_TYPES.MOUNTAIN.id;
+            array[97].type = CELL_TYPES.MOUNTAIN.id;
+            array[101].type = CELL_TYPES.MOUNTAIN.id;
 
-    // Add mountains
-    array[14].type = CELL_TYPES.MOUNTAIN.id;
-    array[30].type = CELL_TYPES.MOUNTAIN.id;
-    array[60].type = CELL_TYPES.MOUNTAIN.id;
-    array[90].type = CELL_TYPES.MOUNTAIN.id;
-    array[106].type = CELL_TYPES.MOUNTAIN.id;
-
-    // Add ruins
-    array[16].isRuins = true;
-    array[23].isRuins = true;
-    array[23].isRuins = true;
-    array[31].isRuins = true;
-    array[89].isRuins = true;
-    array[97].isRuins = true;
-    array[104].isRuins = true;
-
-    return array;
-}
+            // Add crevasses
+            array[38].type = CELL_TYPES.CREVASSE.id;
+            array[48].type = CELL_TYPES.CREVASSE.id;
+            array[49].type = CELL_TYPES.CREVASSE.id;
+            array[59].type = CELL_TYPES.CREVASSE.id;
+            array[60].type = CELL_TYPES.CREVASSE.id;
+            array[61].type = CELL_TYPES.CREVASSE.id;
+            array[71].type = CELL_TYPES.CREVASSE.id;
+            
+            // Add ruins
+            array[17].isRuins = true;
+            array[24].isRuins = true;
+            array[67].isRuins = true;
+            array[85].isRuins = true;
+            array[102].isRuins = true;
+            return array;
+        }
+    }
+]
 
 const initBoard = (length = 121) => {
     return Array.from({length}, (v,i) => new Cell(i));
 }
 
-export const cells = writable(initBoardA());
+export const board = writable(boards[0]);
+export const cells = writable([]);
 export const coins = writable(0);
 export const cellsPerLine = writable(11);
 export const title = writable("");
-export const scoring = writable([{},{},{},{}])
+export const scoring = writable([{},{},{},{}]);
+
+board.subscribe(currentValue => {
+    cells.set(currentValue.init());
+})
