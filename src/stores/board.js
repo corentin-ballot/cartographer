@@ -1,4 +1,4 @@
-import { writable, get, set } from 'svelte/store'
+import { writable, get } from 'svelte/store'
 
 export const getRegions = () => {
     return get(cells).filter(cell => cell.type != CELL_TYPES.EMPTY.id).map(cell => {
