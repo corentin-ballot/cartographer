@@ -74,7 +74,7 @@ import { username } from '../stores/user';
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: auto;
+        margin: 0 auto 16px;
 
         border: solid grey 1px;
     }

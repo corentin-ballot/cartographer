@@ -11,7 +11,7 @@
 </script>
 
 <div class="coins">
-    {#each Array.from({length: 14}, (v, k) => k) as index}
+    {#each Array.from({length: 11}, (v, k) => k) as index}
         <button class="coin" class:coin-earn={index < $coins} on:click={() => {setCoin(index+1 == $coins ? index:index+1)}}></button>
     {/each}
 </div>
@@ -19,6 +19,7 @@
 <style>
     .coins {
         display: flex;
+        margin-bottom: 16px;
     }
 
     .coin {
@@ -32,10 +33,17 @@
         filter: grayscale(.8);
         opacity: .5;
         cursor: pointer;
-        margin: 0;
+        margin: 0 4px;
         padding: 0;
         background-color: unset;
         border: none;
+    }
+
+    .coin:first-child {
+        margin-left: 0;
+    }
+    .coin:last-child {
+        margin-right: 0;
     }
 
     .coin-earn {

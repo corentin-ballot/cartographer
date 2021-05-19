@@ -123,6 +123,7 @@
         width: 100%;
         box-shadow: 0px 0px 3px 0px #CDCDCD;
         position: relative;
+        align-self: center;
     }
 
     .step {

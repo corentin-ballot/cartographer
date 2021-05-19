@@ -62,7 +62,7 @@
         border-right: none;
     }
     .cell-mountain {
-        background-color: brown;
+        background-color: #95301a;
         background-image: url("../assets/img/mountain.svg");
     }
     .cell-mountain::after {
@@ -88,7 +88,7 @@
         background-image: url("../assets/img/sea.svg");
     }
     .cell-village {
-        background-color: darkred;
+        background-color: #fa1425 ;
         background-image: url("../assets/img/village.svg");
     }
     .cell-monster {
@@ -96,7 +96,7 @@
         background-image: url("../assets/img/monster.svg");
     }
     .cell-crevasse {
-        background-color: grey;
+        background-color: #534e4e;
         background-image: url("../assets/img/crevasse.svg");
     }
     .cell-ruins {
