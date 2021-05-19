@@ -25,8 +25,10 @@
         </form>
 
         <form class="step" class:current={step==1} class:passed={step>1} on:submit={handleConfirm}>
-            <div class="logo" style="background-image:url('../assets/img/scoring.svg')"><span style="padding: 14px;line-height: 48px;font-size: 24px;font-family: cursive;">A</span></div>
-
+            <div class="logo score">
+                <span class="letter">A</span>
+            </div>
+            
             <label for="title" class="label">Scoring A</label>
             <select bind:value={$scoring[0]} required>
                 <option selected disabled value="">Select scoring card</option>
@@ -43,8 +45,10 @@
         </form>
 
         <form class="step" class:current={step==2} class:passed={step>2} on:submit={handleConfirm}>
-            <div class="logo" style="background-image:url('../assets/img/scoring.svg')"><span style="padding: 14px;line-height: 48px;font-size: 24px;font-family: cursive;">B</span></div>
-
+            <div class="logo score">
+                <span class="letter">B</span>
+            </div>
+            
             <label for="title" class="label">Scoring B</label>
             <select bind:value={$scoring[1]} required>
                 <option selected disabled value="">Select scoring card</option>
@@ -61,7 +65,9 @@
         </form>
 
         <form class="step" class:current={step==3} class:passed={step>3} on:submit={handleConfirm}>
-            <div class="logo" style="background-image:url('../assets/img/scoring.svg')"><span style="padding: 14px;line-height: 48px;font-size: 24px;font-family: cursive;">C</span></div>
+            <div class="logo score">
+                <span class="letter">C</span>
+            </div>
 
             <label for="title" class="label">Scoring C</label>
             <select bind:value={$scoring[2]} required>
@@ -79,7 +85,9 @@
         </form>
 
         <form class="step" class:current={step==4} class:passed={step>4} on:submit={handleConfirm}>
-            <div class="logo" style="background-image:url('../assets/img/scoring.svg')"><span style="padding: 14px;line-height: 48px;font-size: 24px;font-family: cursive;">D</span></div>
+            <div class="logo score">
+                <span class="letter">D</span>
+            </div>
 
             <label for="title" class="label">Scoring D</label>
             <select bind:value={$scoring[3]} required>
@@ -147,6 +155,17 @@
         display: block;
         margin: -24px auto 16px;
         position: relative;
+    }
+
+    .logo.score {
+        background-image:url('../assets/img/scoring.svg');
+    }
+
+    .logo.score .letter {
+        padding: 14px;
+        line-height: 48px;
+        font-size: 24px;
+        font-family: cursive;
     }
 
     .label {

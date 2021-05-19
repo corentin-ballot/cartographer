@@ -11,7 +11,7 @@
 
 <div class="login-container">
     <form class="login" on:submit={handleConfirm}>
-        <img src="../assets/img/compass.svg" alt="" class="logo"/>
+        <img src="assets/img/compass.svg" alt="" class="logo"/>
 
         <label for="username" class="label">Cartographer</label>
         <input type="text" id="username" name="username" class="input" bind:value={name}/>
