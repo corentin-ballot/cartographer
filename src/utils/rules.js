@@ -42,7 +42,7 @@ export const rules = [
         type: "Ferme/Lac", 
         name: "Vallée des Mages", 
         desc: "Gagnez une étoile de réputation pour chaque case Lac adjacente à une case Montagne. Gagnez une étoile de réputation pour chaque case Ferme adjacente à une case à une case Montagne.",
-        calc: (cells, cellsPerLine) => cells.filter(c => c.type == CELL_TYPES.SEA.id && c.hasNeighborOfType(CELL_TYPES.MOUNTAIN.id)).length + cells.filter(c => c.type == CELL_TYPES.FIELD.id && c.hasNeighborOfType(CELL_TYPES.MOUNTAIN.id)).length
+        calc: (cells, cellsPerLine) => 2* cells.filter(c => c.type == CELL_TYPES.SEA.id && c.hasNeighborOfType(CELL_TYPES.MOUNTAIN.id)).length + cells.filter(c => c.type == CELL_TYPES.FIELD.id && c.hasNeighborOfType(CELL_TYPES.MOUNTAIN.id)).length
     },
     {
         id: 32, 
