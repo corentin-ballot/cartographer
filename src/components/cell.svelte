@@ -84,7 +84,7 @@
         background-image: url("../assets/img/field.svg");
     }
     .cell-sea {
-        background-color: slateblue;
+        background-color: #005d93;
         background-image: url("../assets/img/sea.svg");
     }
     .cell-village {
