@@ -107,7 +107,7 @@ export const rules = [
         type: "Plateau", 
         name: "Route Brisée", 
         desc: "Gagnez trois étoiles de réputation pour chaque ligne diagonale de cases remplie qui touchent le bord gauche et le bord inférieur du parchemin.",
-        calc: (cells, cellsPerLine) => {let completeDiagonals = 0; for(let i = 0; i < cells.length/cellsPerLine; i++) { let j = 0; for (; j < cellsPerLine - i;) {if(cells[i*cellsPerLine+j*cellsPerLine+j].type == CELL_TYPES.EMPTY.id) break; j++} if(j == cellsPerLine - i) completeDiagonals++} return completeDiagonals}
+        calc: (cells, cellsPerLine) => {let completeDiagonals = 0; for(let i = 0; i < cells.length/cellsPerLine; i++) { let j = 0; for (; j < cellsPerLine - i;) {if(cells[i*cellsPerLine+j*cellsPerLine+j].type == CELL_TYPES.EMPTY.id) break; j++} if(j == cellsPerLine - i) completeDiagonals++} return 3* completeDiagonals}
     },
     {
         id: 41, 
