@@ -85,7 +85,7 @@ export const rules = [
         type: "Village", 
         name:"Remparts", 
         desc: "Gagnez deux étoiles de réputation pour chaque case Village dans la deuxième plus grande régions de villages. En cas d'égalité, ne décomptez qu'une seule des régions concernées.",
-        calc: (cells, cellsPerLine) => getRegions().filter(r => r.type == CELL_TYPES.VILLAGE.id).map(r => r.cells.length).sort((a,b) => b-a)[1] || 0
+        calc: (cells, cellsPerLine) => 2* (getRegions().filter(r => r.type == CELL_TYPES.VILLAGE.id).map(r => r.cells.length).sort((a,b) => b-a)[1] || 0)
     },
  
     {
