@@ -35,7 +35,7 @@ export const rules = [
         type: "Ferme/Lac", 
         name: "Cannaux d'Irrigation", 
         desc: "Gagnez une étoile de réputation pour chaque case Lac adjacente à au moins une Ferme. Gagnez une étoile de réputation pour chaque case Ferme adjacente à au moins une case Lac.",
-        calc: (cells, cellsPerLine) => cells.filter(c => c.type == CELL_TYPES.SEA.id && c.hasNeighborOfType(CELL_TYPES.FIELD.id)).length *3 + cells.filter(c => c.type == CELL_TYPES.FIELD.id && c.hasNeighborOfType(CELL_TYPES.SEA.id)).length
+        calc: (cells, cellsPerLine) => cells.filter(c => c.type == CELL_TYPES.SEA.id && c.hasNeighborOfType(CELL_TYPES.FIELD.id)).length + cells.filter(c => c.type == CELL_TYPES.FIELD.id && c.hasNeighborOfType(CELL_TYPES.SEA.id)).length
     },
     {
         id: 31, 
