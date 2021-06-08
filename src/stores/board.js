@@ -12,7 +12,7 @@ export const getRegions = () => {
             type: cell.type,
             cells: cs
         }
-    }).reduce(regionsReducer);
+    }).reduce(regionsReducer).reduce(regionsReducer);
 }
 
 const regionsReducer = (regions, region) => {
