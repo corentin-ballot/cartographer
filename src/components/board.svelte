@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from 'svelte';
     import Cell from './cell.svelte';
     import {cells, cellsPerLine, CELL_TYPES, title} from '../stores/board';
     import { isOpen, selectedCell } from '../stores/modal';
@@ -11,6 +12,14 @@
             $isOpen = true;
         $selectedCell = c.id;
     };
+
+    onMount(() => {
+        window.addEventListener('beforeunload', (e) => {
+			e.preventDefault();
+            e.returnValue = '';
+            return;
+        });
+    })
 </script>
 
 <div class="app">
