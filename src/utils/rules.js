@@ -100,7 +100,7 @@ export const rules = [
         type: "Plateau", 
         name: "Baronnie Perdue", 
         desc: "Gagnez trois étoiles de réputation pour chaque case constituant l'un des bords du plus grand carré de cases remplies.",
-        calc: (cells, cellsPerLine) => Math.max(...cells.map(c => c.type > 0 ? 1:0).map((e, i, a) => {let v = i < cellsPerLine || i%cellsPerLine == 0 ? e : (e > 0 ? 1 + Math.min(a[i-cellsPerLine],a[i-1],a[i-cellsPerLine-1]) : e); a[i]=v; return v;}))
+        calc: (cells, cellsPerLine) => 3* Math.max(...cells.map(c => c.type > 0 ? 1:0).map((e, i, a) => {let v = i < cellsPerLine || i%cellsPerLine == 0 ? e : (e > 0 ? 1 + Math.min(a[i-cellsPerLine],a[i-1],a[i-cellsPerLine-1]) : e); a[i]=v; return v;}))
     },
     {
         id: 40, 
