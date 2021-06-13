@@ -49,7 +49,7 @@ export const rules = [
         type: "Ferme/Lac", 
         name: "Grenier Doré", 
         desc: "Gagnez une étoile de réputation pour chaque case Lac adjacente à une case Ruines. Gagnez trois étoiles de réputation pour chaque case Ferme sur une case Ruines.",
-        calc: (cells, cellsPerLine) => cells.filter(c => (c.type == CELL_TYPES.SEA.id && ((c.id < cellsPerLine ? false : cells[c.id - cellsPerLine].isRuins) || (c.id > cells.length - cellsPerLine ? false : cells[c.id + cellsPerLine].isRuins) || (c.id % cellsPerLine == 0 ? false : cells[c.id -1].isRuins) || (c.id % cellsPerLine == cellsPerLine -1 ? false : cells[c.id +1].isRuins)))).length + cells.filter(c => c.type == CELL_TYPES.FIELD.id && cells[c.id].isRuins).length*3
+        calc: (cells, cellsPerLine) => cells.filter(c => (c.type == CELL_TYPES.SEA.id && ((c.id < cellsPerLine ? false : cells[c.id - cellsPerLine].isRuins) || (c.id >= cells.length - cellsPerLine ? false : cells[c.id + cellsPerLine].isRuins) || (c.id % cellsPerLine == 0 ? false : cells[c.id -1].isRuins) || (c.id % cellsPerLine == cellsPerLine -1 ? false : cells[c.id +1].isRuins)))).length + cells.filter(c => c.type == CELL_TYPES.FIELD.id && cells[c.id].isRuins).length*3
     },
     {
         id: 33, 
