@@ -1,5 +1,5 @@
 <script>
-   import { coins } from '../stores/board';
+   import { coins } from '../stores/score';
 
    const setCoin = (quantity) => {
        $coins = quantity;

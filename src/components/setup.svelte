@@ -1,14 +1,25 @@
 <script>
-    import { title, scoring, boards, board } from "../stores/board";
+    import { title, boards, board, cells } from "../stores/board";
+    import { season, scoring, coins } from "../stores/score"
     import { rules } from "../utils/rules"
     import Board from "./board.svelte";
 
     let step = 0;
     let steps = 6;
 
+    if ($season >= 0 && window.confirm("Reprendre la dernière partie ?")) {
+        step = steps;
+    }
+
     const handleConfirm = (e) => {
         e.preventDefault();
-        step ++;
+        if(++step == steps) start();
+    }
+
+    const start = () => {
+        season.set(0);
+        coins.set(0);
+        cells.set(boards[$board].init());
     }
 </script>
 
@@ -35,7 +46,7 @@
                 {#each rules.map(r => r.type).filter((r,i,a) => a.indexOf(r) == i) as type}
                 <optgroup label={type}>
                     {#each rules.filter(r => r.type == type) as rule}
-                    <option value={rule}>{rule.name}</option>
+                    <option value={rule.id}>{rule.name}</option>
                     {/each}
                 </optgroup> 
                 {/each}
@@ -55,7 +66,7 @@
                 {#each rules.map(r => r.type).filter((r,i,a) => a.indexOf(r) == i) as type}
                 <optgroup label={type}>
                     {#each rules.filter(r => r.type == type) as rule}
-                    <option value={rule}>{rule.name}</option>
+                    <option value={rule.id}>{rule.name}</option>
                     {/each}
                 </optgroup> 
                 {/each}
@@ -75,7 +86,7 @@
                 {#each rules.map(r => r.type).filter((r,i,a) => a.indexOf(r) == i) as type}
                 <optgroup label={type}>
                     {#each rules.filter(r => r.type == type) as rule}
-                    <option value={rule}>{rule.name}</option>
+                    <option value={rule.id}>{rule.name}</option>
                     {/each}
                 </optgroup> 
                 {/each}
@@ -95,7 +106,7 @@
                 {#each rules.map(r => r.type).filter((r,i,a) => a.indexOf(r) == i) as type}
                 <optgroup label={type}>
                     {#each rules.filter(r => r.type == type) as rule}
-                    <option value={rule}>{rule.name}</option>
+                    <option value={rule.id}>{rule.name}</option>
                     {/each}
                 </optgroup> 
                 {/each}
@@ -112,8 +123,8 @@
             <label for="title" class="label">Map</label>
             <select bind:value={$board} required>
                 <option selected disabled>Select map template</option>
-                {#each boards as board}
-                    <option value={board}>{board.name}</option>
+                {#each boards as board, index}
+                    <option value={index}>{board.name}</option>
                 {/each}
             </select>
 
