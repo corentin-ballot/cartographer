@@ -127,13 +127,26 @@ const initBoard = (length = 121) => {
     return Array.from({length}, (v,i) => new Cell(i));
 }
 
-export const board = writable(boards[0]);
-export const cells = writable([]);
-export const coins = writable(0);
-export const cellsPerLine = writable(11);
-export const title = writable("");
-export const scoring = writable([{},{},{},{}]);
+const hydrateCells = (cells) => {
+    return JSON.parse(cells)?.map(c => new Cell(c.id, c.type, c.isRuins));
+}
 
-board.subscribe(currentValue => {
-    cells.set(currentValue.init());
-})
+export const board = writable(JSON.parse(localStorage.getItem("board")) || 0);
+board.subscribe(val => localStorage.setItem("board", JSON.stringify(val)));
+
+export const cells = writable(hydrateCells(localStorage.getItem("cells")) || []);
+cells.subscribe(val => localStorage.setItem("cells", JSON.stringify(val)));
+
+export const cellsPerLine = writable(JSON.parse(localStorage.getItem("cellsPerLine")) || 11);
+cellsPerLine.subscribe(val => localStorage.setItem("cellsPerLine", JSON.stringify(val)));
+
+export const title = writable(localStorage.getItem("title") || "");
+title.subscribe(val => localStorage.setItem("title", val));
+
+export const clearData = () => {
+    localStorage.removeItem("board")
+    localStorage.removeItem("cells")
+    localStorage.removeItem("coins")
+    localStorage.removeItem("cellsPerLine")
+    localStorage.removeItem("title")
+};
